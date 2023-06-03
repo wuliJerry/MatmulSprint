@@ -1,11 +1,14 @@
-CC = clang
-CXX = clang++
+CC = gcc
+CXX = g++
 CUDA = nvcc
 CFLAG = -Wall -Wextra -Werror
-CXXFLAG = -Wall -Wextra -Werror -I/opt/homebrew/include/eigen3
 
 # Path: src/
-SRC_PATH = src/
-OBJ_PATH = obj/
-BIN_PATH = bin/
+SRC = src/
+OBJ = obj/
+BIN = bin/
 
+.PHONY: all clean
+
+clean:
+	rm -rf $(OBJ)* $(BIN)*
