@@ -1,14 +1,16 @@
-CC = gcc
-CXX = g++
-CUDA = nvcc
-CFLAG = -Wall -Wextra -Werror
+SRC_CPU = src/cpu
+SRC_GPU = src/gpu
 
-# Path: src/
-SRC = src/
-OBJ = obj/
-BIN = bin/
+.PHONY: all cpu gpu clean
 
-.PHONY: all clean
+all: cpu gpu
+
+cpu:
+	$(MAKE) -C $(SRC_CPU)
+
+gpu:
+	$(MAKE) -C $(SRC_GPU)
 
 clean:
-	rm -rf $(OBJ)* $(BIN)*
+	$(MAKE) -C $(SRC_CPU) clean
+	$(MAKE) -C $(SRC_GPU) clean
