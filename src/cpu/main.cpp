@@ -22,6 +22,10 @@ int main(int argc, char **argv) {
 		mat2[i] = rand() % 100;
 	}
 
+	for (size_t i = 0; i < M * N; i++) {
+		matRst[i] = 0;
+	}
+
 	matrixMultiply(mat1, mat2, matRst, M, K, N);
 
     delete [] mat1;

@@ -16,15 +16,12 @@ CFLAGS = -Wall -Wextra -O2 -fopenmp
 # Default rule
 all: inner_product outer_product
 
-$(BIN):
-	mkdir -p $(BIN)
+inner_product: 
+	$(MAKE) -C inner
 
-inner_product: $(BIN)
-	$(CC) $(CFLAGS) $(SRC)/main.cpp $(SRC)/inner.cpp -o $(BIN)/inner_product
-
-outer_product: $(BIN)
+outer_product: 
 	$(CC) $(CFLAGS) $(SRC)/main.cpp $(SRC)/outer.cpp -o $(BIN)/outer_product
 
 # Clean rule
 clean:
-	rm -f $(BIN)/inner_product $(BIN)/outer_product
+	rm -f $(BIN)/*
